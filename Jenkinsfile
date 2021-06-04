@@ -5,13 +5,15 @@ pipeline{
                 }
 
     stages{
-                
-        /*stage('Git Checkout'){
+              stage ("Terraform destroy"){
             steps{
-                    git credentialsId: 'githubcred', url: 'https://github.com/Charan-Raj-K/terraform-jenkins.git'
+                    sh 'terraform destroy -auto-approve'
                  }
-           }*/
-	stage ("Terraform Init"){
+            } 
+    }
+}
+        
+	/*stage ("Terraform Init"){
             steps{
                     sh "terraform init"
                  }
@@ -27,7 +29,12 @@ pipeline{
                 }
             }   
 	}
-}
+	post{
+		success{
+			sh 'terraform destroy -auto-approve'
+		}
+	}
+}*/
 	
 	def getTerraformPath(){
 	   def tfpath = tool name: 'terraform', type: 'terraform'  
