@@ -5,15 +5,8 @@ pipeline{
                 }
 
     stages{
-              stage ("Terraform destroy"){
-            steps{
-                    sh 'terraform destroy -auto-approve'
-                 }
-            } 
-    }
-}
         
-	/*stage ("Terraform Init"){
+	stage ("Terraform Init"){
             steps{
                     sh "terraform init"
                  }
@@ -23,7 +16,7 @@ pipeline{
                     sh 'terraform plan'
                 }
             }
-        stage ('Terraform apply'){
+    stage ('Terraform apply'){
             steps{
                     sh 'terraform apply -auto-approve'
                 }
@@ -34,7 +27,7 @@ pipeline{
 			sh 'terraform destroy -auto-approve'
 		}
 	}
-}*/
+}
 	
 	def getTerraformPath(){
 	   def tfpath = tool name: 'terraform', type: 'terraform'  
