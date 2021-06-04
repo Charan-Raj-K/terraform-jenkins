@@ -6,11 +6,11 @@ pipeline{
 
     stages{
                 
-        stage('Git Checkout'){
+        /*stage('Git Checkout'){
             steps{
-                    git credentialsId: 'githubcred', url: 'https://github.com/Charan-Raj-K/dockeransiblejenkins.git'
+                    git credentialsId: 'githubcred', url: 'https://github.com/Charan-Raj-K/terraform-jenkins.git'
                  }
-           }
+           }*/
 	stage ("Terraform Init"){
             steps{
                     sh "terraform init"
